@@ -1,0 +1,25 @@
+.map-loading-view {
+	display: block;
+	position: absolute;
+	color: #5e5653;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-style: italic;
+	animation: map-loading-bounce 1.5s infinite ease-in;
+}
+
+@keyframes map-loading-bounce {
+	0% {
+		color: #5e5653;
+		transform: skewX(0deg) translate(-50%, -50%);
+	}
+	60% {
+		color: #0d0d0b;
+		transform: skewX(-8deg) translate(-52%, -50%);
+	}
+	100% {
+		color: #5e5653;
+		transform: skewX(0deg) translate(-50%, -50%);
+	}
+}

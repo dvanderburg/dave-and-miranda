@@ -1,0 +1,77 @@
+body {
+	font-size: 16px;
+	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	background-color: #5e5653;
+	color: #c3bfb3;
+}
+a, a:hover, a:visited, a:active {
+	text-decoration: none;
+	color: #e6d6bd;
+}
+h2 {
+	color: #dcdea1;
+	font-size: 19px;
+	margin-bottom: 2px;
+}
+h3 {
+	color: #f5f0ee;
+	font-size: 18px;
+	margin-bottom: 2px;
+}
+p {
+	font-size: 14px;
+	color: #d8d4d3;
+}
+
+/* main application region defined in index.html */
+section#app-region {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	min-width: 320px;
+}
+
+/* bootstrap loading message that will be removed by content being added to main application region */
+.bootstrap-loading-message {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-style: italic;
+	animation: bootstrap-loading-bounce 1.5s infinite ease-in;
+}
+
+/* animation for the bootstrap loading message, subtle colour change and skew */
+@keyframes bootstrap-loading-bounce {
+	0% {
+		color: #c3bfb3;
+		transform: skewX(0deg) translate(-50%, -50%);
+	}
+	60% {
+		color: #dbd4d1;
+		transform: skewX(-5deg) translate(-50%, -50%);
+	}
+	100% {
+		color: #c3bfb3;
+		transform: skewX(0deg) translate(-50%, -50%);
+	}
+}
+
+/* aniation for a google map loading message used throughout various views that show a map/maps, subtle colour change and skew */
+@keyframes map-loading-bounce {
+	0% {
+		color: #5e5653;
+		transform: skewX(0deg) translate(-50%, -50%);
+	}
+	60% {
+		color: #0d0d0b;
+		transform: skewX(-8deg) translate(-52%, -50%);
+	}
+	100% {
+		color: #5e5653;
+		transform: skewX(0deg) translate(-50%, -50%);
+	}
+}

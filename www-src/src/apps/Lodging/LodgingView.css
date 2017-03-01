@@ -1,0 +1,19 @@
+.lodging-view {
+}
+
+.lodging-view .lodging-details {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.lodging-view .lodging-details p {
+	margin-bottom: 8px;
+}
+
+.lodging-view .map {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	background: #c3bfb3;
+}
+

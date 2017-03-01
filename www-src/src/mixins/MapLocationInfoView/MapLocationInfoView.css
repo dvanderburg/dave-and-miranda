@@ -1,0 +1,31 @@
+.map-location-info-view .location-details {
+	width: 90%;
+	margin: 0 auto;
+	
+}
+
+.map-location-info-view h2 {
+	text-shadow: 1px 1px 1px #333;
+}
+
+.map-location-info-view .address {
+	color: #e8e5e4;
+	margin-bottom: 12px;
+	text-shadow: 1px 1px 1px #333;
+}
+.map-location-info-view .address .street-and-number {
+}
+.map-location-info-view .address .city-and-postal {
+}
+
+.map-location-info-view p {
+	margin-bottom: 8px;
+	text-shadow: 1px 1px 1px #333;
+}
+
+.map-location-info-view .location-map {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	background: #c3bfb3;
+}

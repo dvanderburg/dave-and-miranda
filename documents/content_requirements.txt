@@ -1,0 +1,15 @@
+Headings/Announcements:
+	* Date and location
+	* Floating "save the date" footer?
+		* Add to calendar?
+
+
+Navigation elements:
+	* Ceremony
+	* Reception
+	* Where to Stay
+	* What to See
+	* Registry
+	* Wedding Party
+	* RRSP
+	

@@ -1,0 +1,76 @@
+.itinerary-list-view {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.itinerary-list-view .itinerary-list-item {
+	margin: 6px auto;
+	position: relative;
+	min-height: 85px;	
+}
+.itinerary-list-view .itinerary-list-item .itinerary-list-icon {
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	background-color: #46403d;
+	background-size: 200%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	box-shadow: 1px 1px 2px #46403d;
+}
+.itinerary-list-view .itinerary-list-item.ceremony .itinerary-list-icon {
+	background-image: url('../../../assets/splash/vineyard.jpg');
+}
+.itinerary-list-view .itinerary-list-item.reception .itinerary-list-icon {
+	background-image: url('../../../assets/splash/dining.jpg');
+	background-position: 110px 0px;
+	background-size: 160px;
+}
+.itinerary-list-view .itinerary-list-item.registry .itinerary-list-icon {
+	background-color: #fff;
+	background-image: url('../../../assets/splash/registry.jpg');
+	background-position: -60px 6px;
+	background-size: 220px;
+}
+.itinerary-list-view .itinerary-list-item.hotel .itinerary-list-icon {
+	background-image: url('../../../assets/splash/hotel.jpg');
+}
+.itinerary-list-view .itinerary-list-item.rsvp .itinerary-list-icon {
+	background-color: #fff;
+	background-image: url('../../../assets/splash/rsvp.png');
+	background-position: 10px 18px;
+	background-size: 60px;
+	background-repeat: no-repeat;
+}
+.itinerary-list-view .itinerary-list-item .itinerary-list-body {
+	margin-left: 90px;
+	position: absolute;
+	top: 40%;
+	transform: translateY(-40%);
+}
+.itinerary-list-view .itinerary-list-item .itinerary-list-body h2 {
+	text-shadow: 1px 1px 1px #333;
+}
+.itinerary-list-view .itinerary-list-item .itinerary-list-body h3 {
+	text-shadow: 1px 1px 1px #333;
+}
+.itinerary-list-view .itinerary-list-item .itinerary-list-body p {
+	text-shadow: 1px 1px 1px #333;
+}
+.itinerary-list-view .itinerary-list-item .itinerary-list-body a.more-info {
+	display: block;
+	font-size: 14px;
+	padding: 2px 0px;
+	text-shadow: 1px 1px 1px #333;
+}
+
+@media screen and (min-width: 650px) { 
+	
+	.itinerary-list-view .itinerary-list-item {
+		float: right;
+		width: 40%;
+		margin: 6px 5%;
+	}
+
+}

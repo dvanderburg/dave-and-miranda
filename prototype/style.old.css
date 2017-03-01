@@ -1,0 +1,57 @@
+/* light coloured background boxes for event detail containers */
+.event-detail {
+	width: 90%;
+	margin: 0 auto 8px auto;
+}
+.event-detail h2 {
+	color: #ccce9c;
+	font-size: 17px;
+	margin-bottom: 2px;
+	text-shadow: 1px 1px 1px #3c3b3b;
+}
+.event-detail p {
+	color: #716b69;
+	background-color: #e4e1df;
+	padding: 3px 4px;
+	border-radius: 2px;
+	box-shadow: 1px 1px 1px 1px #504a48;
+}
+
+/* event map below heading of time and location */
+.event-detail {
+	width: 90%;
+	margin: 0 auto;
+}
+.event-detail h2 {
+	color: #e8e4e2;
+	text-shadow: 1px 1px 1px #333;
+	font-size: 18px;
+	margin-bottom: 2px;
+}
+.event-detail h2 .event-detail-time {
+	color: #ccce9c;
+}
+.event-detail h3 {
+	color: #e8e4e2;
+	text-shadow: 1px 1px 1px #555;
+	font-size: 16px;
+	margin-bottom: 2px;
+}
+
+.event-detail .event-detail-map {
+	height: 140px;
+	padding: 5px 0px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-size: cover;
+	box-shadow: 1px 1px 1px #333;
+	color: #8a4b4b;
+	text-align: center;
+	text-shadow: 1px 1px 1px #aaa;
+	font-weight: bold;
+	border-radius: 2px;
+}
+.event-detail .event-detail-map.ceremony-map {
+	background-image: url('ceremony_map.png');
+}

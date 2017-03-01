@@ -1,0 +1,15 @@
+.navigation-header-layout {
+}
+
+.navigation-header-layout .navigation-heading-region {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	background-color: #5e5653;
+	border-bottom: 1px solid #c3bfb3;
+}
+
+.navigation-header-layout .navigation-header-content-region {
+	margin-top: 75px;
+}

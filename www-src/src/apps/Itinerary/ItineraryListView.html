@@ -1,0 +1,31 @@
+<script id="itinerary-list-item" type="text/html">
+	<div class="itinerary-list-item <%= class_name %>">
+		<div class="itinerary-list-icon"></div>
+		<div class="itinerary-list-body">
+			<h2><%= heading %></h2>
+			<h3><%= subheading %></h3>
+			<a href="<%= href %>" class="more-info"><%= action %></a>
+		</div>
+	</div>
+</script>
+
+<script id="itinerary-list-info-item" type="text/html">
+	<div class="itinerary-list-item <%= class_name %>">
+		<div class="itinerary-list-icon"></div>
+		<div class="itinerary-list-body">
+			<h2><%= heading %></h2>
+			<p><%= information %></p>
+			<a href="<%= href %>" class="more-info"><%= action %></a>
+		</div>
+	</div>
+</script>
+
+<script id="itinerary-list-info-item-no-link" type="text/html">
+	<div class="itinerary-list-item <%= class_name %>">
+		<div class="itinerary-list-icon"></div>
+		<div class="itinerary-list-body">
+			<h2><%= heading %></h2>
+			<p><%= information %></p>
+		</div>
+	</div>
+</script>

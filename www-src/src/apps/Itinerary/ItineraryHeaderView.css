@@ -1,0 +1,30 @@
+.itinerary-header-view {
+	font-size: 25px;
+	text-align: center;
+	color: #e8e4e2;
+	text-shadow: 1px 1px 1px #333;
+	margin: 0 auto;
+	width: 320px;
+	padding: 20px 0px;
+}
+
+.itinerary-header-view .name-element {
+	display: block;
+}
+.itinerary-header-view .name-element.name-conjunction {
+	color: #dcdea1;
+	font-weight: bold;
+	font-size: 22px;
+	text-shadow: 1px 1px 1px #504f4e;
+}
+
+@media screen and (min-width: 650px) {
+
+	.itinerary-header-view {
+		width: auto;
+	}
+	.itinerary-header-view .name-element {
+		display: inline;
+	}
+
+}
