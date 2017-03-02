@@ -36,9 +36,11 @@ define([
 			GoogleMapsLoader.version = "3.27";
 			GoogleMapsLoader.timeout = 5000;
 			
+			console.log(options.center);
+			
 			this.place_id = options.place_id;
-			this.center = { lat: 43.16712592, lng: -79.43939209 };
-			this.zoom = 11;
+			this.center = options.center;
+			this.zoom = options.zoom
 			
 			this.header_text = options.header_text;
 			this.street_address = options.street_address;
@@ -82,8 +84,8 @@ define([
 			var mapContainer = this.getUI("map")[0];
 			
 			var map = new GoogleMaps.Map(mapContainer, {
-				center: { lat: 43.16712592, lng: -79.43939209 },
-				zoom: 11
+				center: this.center,
+				zoom: this.zoom
 			});
 			
 			var service = new GoogleMaps.places.PlacesService(map);

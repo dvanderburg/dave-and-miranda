@@ -1,0 +1,22 @@
+.registry-view .registry-details {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.registry-view .registry-reference {
+	width: 95%;
+	margin: 12px auto 0px auto;
+	padding: 8px 0px;
+	font-size: 1.1em;
+	text-align: center;
+}
+.registry-view .registry-reference .registry-action {
+	color: #dcdea1;
+	margin-bottom: 4px;
+}
+.registry-view .registry-reference .registry-number {
+	color: #e8e4e2;
+	text-shadow: 1px 1px 1px #333;
+	font-size: 1.25em;
+	padding: 4px 0px;
+}

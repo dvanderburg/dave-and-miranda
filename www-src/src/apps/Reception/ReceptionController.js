@@ -32,7 +32,7 @@ define([
 			
 			var receptionView = new MapLocationInfoView({
 				place_id: "ChIJhQsx0PxI04kRF6AipEcYixI",
-				center: { lat: 43.149194, lng: -79.368373 },
+				center: { lat: 43.149194, lng: -79.36837300000002 },
 				zoom: 12,
 				header_text: "Inn on the Twenty",
 				street_address: "3845 Main Street",

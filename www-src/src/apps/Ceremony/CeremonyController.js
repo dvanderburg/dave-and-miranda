@@ -32,9 +32,9 @@ define([
 			
 			var ceremonyView = new MapLocationInfoView({
 				place_id: "ChIJx9NpL4mtLIgRkTrINbXVXWk",
-				center: { lat: 43.16712592, lng: -79.43939209 },
+				center: { lat: 43.15280020000001, lng: -79.44592060000002 },
 				zoom: 11,
-				header_text: "Ceremony",
+				header_text: "Cave Spring Vineyard",
 				street_address: "4424 Cave Spring Road",
 				city_address: "Beamsville, Ontario L0R 1B1",
 				description: [

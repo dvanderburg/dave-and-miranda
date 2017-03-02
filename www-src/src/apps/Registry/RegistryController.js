@@ -2,21 +2,42 @@
 */
 define([
 	'marionette',
-	'backbone.radio'
+	'backbone.radio',
+	'apps/Registry/RegistryView',
+	'mixins/NavigationHeaderLayout/NavigationHeaderView',
+	'mixins/NavigationHeaderLayout/NavigationHeaderLayout'
 ], function(
 	Marionette,
-	Radio
+	Radio,
+	RegistryView,
+	NavigationHeaderView,
+	NavigationHeaderLayout
 ) {
 	
 	return Marionette.Object.extend({
+		
+		channelName: "registry",
+		
+		radioEvents: {
+			"show:registry": "showRegistry"
+		},
 		
 		/**
 		*/
 		showRegistry: function() {
 			
-			console.log("Registry!");
+			var navigationHeaderView = new NavigationHeaderView({
+				header_text: "Registry"
+			});
 			
-//			Radio.channel("app").trigger("show:content", headerLayout);
+			var registryView = new RegistryView();
+			
+			var headerLayout = new NavigationHeaderLayout({
+				header: navigationHeaderView,
+				content: registryView
+			});
+			
+			Radio.channel("app").trigger("show:content", headerLayout);
 
 		}
 		
