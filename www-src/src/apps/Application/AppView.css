@@ -1,23 +1,2 @@
 .app-view {
-	width: 90%;
-	margin: 0 auto;
-	position: relative;
-}
-
-/* desktop break */
-@media screen and (min-width: 900px) { 
-	
-	.app-view {
-		width: 80%;
-	}
-
-}
-
-/* wide display break */
-@media screen and (min-width: 1200px) { 
-	
-	.app-view {
-		width: 60%;
-	}
-
 }

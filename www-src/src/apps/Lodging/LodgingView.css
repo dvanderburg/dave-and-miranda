@@ -2,6 +2,8 @@
 }
 
 .lodging-view .lodging-details {
+	width: 95%;
+	margin: 0 auto;
 }
 
 .lodging-view .lodging-details p {

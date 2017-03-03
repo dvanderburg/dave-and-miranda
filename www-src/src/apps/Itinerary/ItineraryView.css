@@ -1,0 +1,23 @@
+.itinerary-view {
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+}
+
+/* desktop break */
+@media screen and (min-width: 900px) { 
+	
+	.itinerary-view {
+		width: 80%;
+	}
+
+}
+
+/* wide display break */
+@media screen and (min-width: 1200px) { 
+	
+	.itinerary-view {
+		width: 60%;
+	}
+
+}

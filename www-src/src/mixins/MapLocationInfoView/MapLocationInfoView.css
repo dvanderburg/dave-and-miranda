@@ -1,4 +1,6 @@
 .map-location-info-view .location-details {
+	width: 95%;
+	margin: 0 auto;
 }
 
 .map-location-info-view h2 {

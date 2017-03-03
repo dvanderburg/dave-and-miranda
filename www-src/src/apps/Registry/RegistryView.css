@@ -1,4 +1,6 @@
 .registry-view .registry-details {
+	width: 95%;
+	margin: 0 auto;
 }
 
 .registry-view .registry-reference {
