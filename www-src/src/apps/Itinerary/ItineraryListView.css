@@ -1,6 +1,9 @@
 .itinerary-list-view {
-	width: 90%;
-	margin: 0 auto;
+}
+.itinerary-list-view:after {
+	display: table;
+	content: "";
+	clear: both;
 }
 
 .itinerary-list-view .itinerary-list-item {
@@ -65,10 +68,11 @@
 	text-shadow: 1px 1px 1px #333;
 }
 
-@media screen and (min-width: 650px) { 
+/* desktop break */
+@media screen and (min-width: 750px) { 
 	
 	.itinerary-list-view .itinerary-list-item {
-		float: right;
+		float: left;
 		width: 40%;
 		margin: 6px 5%;
 	}

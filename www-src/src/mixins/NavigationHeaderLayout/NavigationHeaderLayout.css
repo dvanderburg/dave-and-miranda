@@ -13,3 +13,23 @@
 .navigation-header-layout .navigation-header-content-region {
 	margin-top: 75px;
 }
+
+/* desktop break */
+@media screen and (min-width: 900px) { 
+	
+	.navigation-header-layout .navigation-heading-region {
+		left: 10%;
+		right: 10%;
+	}
+
+}
+
+/* wide display break */
+@media screen and (min-width: 1200px) { 
+
+	.navigation-header-layout .navigation-heading-region {
+		left: 20%;
+		right: 20%;
+	}
+	
+}

@@ -36,8 +36,6 @@ define([
 			GoogleMapsLoader.version = "3.27";
 			GoogleMapsLoader.timeout = 5000;
 			
-			console.log(options.center);
-			
 			this.place_id = options.place_id;
 			this.center = options.center;
 			this.zoom = options.zoom
