@@ -1,4 +1,10 @@
-	/**
+/**
+	View to display the various itinerary items in a list
+	
+	Triggers
+		When any of the itinerary items are clicked, a "click" event is triggered to indicate which item was clicked
+		See the view triggers for specific names
+	
 */
 define([
 	'backbone',
@@ -25,19 +31,21 @@ define([
 			rsvp: ".itinerary-list-item.rsvp",
 		},
 		
-		events: {
-			"click @ui.ceremony": "onClickCeremony",
-			"click @ui.reception": "onClickReception",
-			"click @ui.lodging": "onClickLodging",
-			"click @ui.registry": "onClickRegistry"
+		triggers: {
+			"click @ui.ceremony": "click:ceremony",
+			"click @ui.reception": "click:reception",
+			"click @ui.lodging": "click:lodging",
+			"click @ui.registry": "click:registry"
 		},
 		
 		/**
 		*/
 		onClickCeremony: function() {
 			
-			Backbone.history.navigate("ceremony");
-			Radio.channel("ceremony").trigger("show:ceremony");
+			this.getUI("ceremony").addClass("foobat");
+			console.log(this.getUI("ceremony"));
+			
+			//Backbone.history.navigate("ceremony");
 			
 		},
 		

@@ -4,12 +4,32 @@
 	position: relative;
 }
 
+.itinerary-view .itinerary-info-region {
+	margin: 18px auto 8px auto;
+	display: none;
+}
+
 /* desktop break */
 @media screen and (min-width: 900px) { 
 	
-	.itinerary-view {
-		width: 80%;
+	.itinerary-view:after {
+		width: 95%;
+		display: table;
+		content: "";
+		clear: both;
 	}
+	
+	.itinerary-view .itinerary-list-region {
+		width: 33%;
+		float: left;
+	}
+	
+	.itinerary-view .itinerary-info-region {
+		width: 66%;
+		float: right;
+		display: block;
+	}
+
 
 }
 

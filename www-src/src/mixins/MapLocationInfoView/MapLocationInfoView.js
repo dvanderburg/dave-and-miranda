@@ -60,7 +60,7 @@ define([
 				.load()
 				.done(_.bind(this.attachMap, this))
 				.fail(_.bind(this.onMapError, this));
-			
+				
 		},
 		
 		/**
@@ -71,7 +71,16 @@ define([
 			
 			reloadView.on("click:reload", this.onBeforeAttach, this);
 			
-			this.getRegion("map").show(reloadView);
+			var mapRegion = this.getRegion("map");
+			
+			// if the map region is undefined the view must have been closed
+			//	the user most likely navigated from the page while the map was loading
+			//	do not bother to the error view with nothing to attach it to
+			if (_.isUndefined(mapRegion)) {
+				return;
+			}
+			
+			mapRegion.show(reloadView);
 			
 		},
 		
@@ -80,6 +89,13 @@ define([
 		attachMap: function(GoogleMaps) {
 			
 			var mapContainer = this.getUI("map")[0];
+			
+			// if the map container is not on the dom the view must have been closed
+			//	the user most likely navigated from the page while the map was loading
+			//	do not bother to attach the map with nothing to attach to
+			if (_.isUndefined(mapContainer)) {
+				return;
+			}
 			
 			var map = new GoogleMaps.Map(mapContainer, {
 				center: this.center,
