@@ -16,7 +16,6 @@
 	width: 80px;
 	height: 80px;
 	background-color: #46403d;
-	background-size: 200%;
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
@@ -24,20 +23,22 @@
 }
 .itinerary-list-view .itinerary-list-item.ceremony .itinerary-list-icon {
 	background-image: url('../../../assets/splash/vineyard.jpg');
+	background-size: 200%;
 }
 .itinerary-list-view .itinerary-list-item.reception .itinerary-list-icon {
 	background-image: url('../../../assets/splash/dining.jpg');
 	background-position: 110px 0px;
 	background-size: 160px;
 }
+.itinerary-list-view .itinerary-list-item.hotel .itinerary-list-icon {
+	background-image: url('../../../assets/splash/hotel.jpg');
+	background-size: 200%;
+}
 .itinerary-list-view .itinerary-list-item.registry .itinerary-list-icon {
 	background-color: #fff;
 	background-image: url('../../../assets/splash/registry.jpg');
 	background-position: -60px 6px;
 	background-size: 220px;
-}
-.itinerary-list-view .itinerary-list-item.hotel .itinerary-list-icon {
-	background-image: url('../../../assets/splash/hotel.jpg');
 }
 .itinerary-list-view .itinerary-list-item.rsvp .itinerary-list-icon {
 	background-color: #fff;
