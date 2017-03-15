@@ -1,4 +1,9 @@
 .itinerary-view {
+	position: relative;
+	min-height: 100vh;
+}
+
+.itinerary-view .itinerary-container {
 	width: 90%;
 	margin: 0 auto;
 	position: relative;
@@ -9,14 +14,48 @@
 	display: none;
 }
 
+.itinerary-view .itinerary-background {
+	width: 160px;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	background-color: transparent;
+	background-repeat: repeat-y;
+	background-position: 0px 0px;
+	opacity: 0.25;
+}
+.itinerary-view .itinerary-background.itinerary-background-left {
+	left: 0px;
+	display: none;
+	background-image: url('../../../assets/splash/birch_left.png');
+}
+.itinerary-view .itinerary-background.itinerary-background-right {
+	right: 0px;
+	background-image: url('../../../assets/splash/birch_right.png');
+	background-position-y: 164px;
+}
+
 /* desktop break */
-@media screen and (min-width: 900px) { 
+@media screen and (min-width: 900px) {
 	
 	.itinerary-view:after {
 		width: 95%;
 		display: table;
 		content: "";
 		clear: both;
+	}
+	
+	.itinerary-view .itinerary-container {
+		width: 60%;
+	}
+	
+	.itinerary-view .itinerary-background {
+		opacity: 0.35;
+		width: 230px;
+	}
+	
+	.itinerary-view .itinerary-background.itinerary-background-left {
+		display: block;
 	}
 	
 	.itinerary-view .itinerary-list-region {
@@ -27,17 +66,11 @@
 	.itinerary-view .itinerary-info-region {
 		width: 66%;
 		float: right;
-		display: block;
 	}
-
 
 }
 
 /* wide display break */
 @media screen and (min-width: 1200px) { 
 	
-	.itinerary-view {
-		width: 60%;
-	}
-
 }

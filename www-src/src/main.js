@@ -44,7 +44,8 @@ requirejs([
 	'apps/Itinerary/ItineraryRouter',
 	'apps/Lodging/LodgingRouter',
 	'apps/Reception/ReceptionRouter',
-	'apps/Registry/RegistryRouter'
+	'apps/Registry/RegistryRouter',
+	'apps/Rsvp/RsvpRouter'
 ], function(
 	Backbone,
 	Application,
@@ -52,7 +53,8 @@ requirejs([
 	ItineraryRouter,
 	LodgingRouter,
 	ReceptionRouter,
-	RegistryRouter
+	RegistryRouter,
+	RsvpRouter
 ) {
 	
 	// create instance of the application object
@@ -65,6 +67,7 @@ requirejs([
 	application.addRouter(new LodgingRouter());
 	application.addRouter(new ReceptionRouter());
 	application.addRouter(new RegistryRouter());
+	application.addRouter(new RsvpRouter());
 
 	// start the application
 	application.start();

@@ -35,7 +35,8 @@ define([
 			"click @ui.ceremony": "click:ceremony",
 			"click @ui.reception": "click:reception",
 			"click @ui.lodging": "click:lodging",
-			"click @ui.registry": "click:registry"
+			"click @ui.registry": "click:registry",
+			"click @ui.rsvp": "click:rsvp"
 		},
 		
 		/**
@@ -73,6 +74,15 @@ define([
 			
 			Backbone.history.navigate("registry");
 			Radio.channel("registry").trigger("show:registry");
+			
+		},
+		
+		/**
+		*/
+		onClickRsvp: function() {
+			
+			Backbone.history.navigate("rsvp");
+			Radio.channel("rsvp").trigger("show:rsvp");
 			
 		},
 		

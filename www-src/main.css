@@ -12,6 +12,8 @@
 
 @import url("src/apps/Registry/RegistryView.css");
 
+@import url("src/apps/Rsvp/RsvpView.css");
+
 @import url("src/mixins/MapLocationInfoView/MapLoadingView.css");
 @import url("src/mixins/MapLocationInfoView/MapLocationInfoView.css");
 @import url("src/mixins/MapLocationInfoView/MapReloadView.css");
