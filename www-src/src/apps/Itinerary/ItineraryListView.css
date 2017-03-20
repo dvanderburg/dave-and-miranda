@@ -6,13 +6,20 @@
 	clear: both;
 }
 
+.itinerary-list-view .itinerary-item-details {
+	float: right;
+	width: 200px;
+}
+
 .itinerary-list-view .itinerary-list-item {
-	margin: 8px auto;
+	margin: 4px auto;
+	padding: 4px 0px 4px 4px;
 	position: relative;
-	min-height: 85px;	
+	min-height: 85px;
+	border-radius: 4px 0px 0px 4px;
 }
 .itinerary-list-view .itinerary-list-item.active {
-	background: red;
+	background: #807673;
 }
 .itinerary-list-view .itinerary-list-item .itinerary-list-icon {
 	border-radius: 50%;

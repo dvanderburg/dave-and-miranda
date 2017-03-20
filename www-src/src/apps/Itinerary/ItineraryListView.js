@@ -10,20 +10,27 @@ define([
 	'backbone',
 	'marionette',
 	'backbone.radio',
+	'mixins/MapLocationInfoView/MapLocationInfoView',
 	'text!apps/Itinerary/ItineraryListView.html'
 ], function(
 	Backbone,
 	Marionette,
 	Radio,
+	MapLocationInfoView,
 	Templates
 ) {
 	
 	return Marionette.View.extend({
 		
 		className: "itinerary-list-view",
-		template: _.noop,
+		template: _.template($(Templates).filter("#itinerary-list-layout").html()),
+		
+		regions: {
+			details: "section.itinerary-item-details"
+		},
 		
 		ui: {
+			listContainer: "section.itinerary-list",
 			ceremony: ".itinerary-list-item.ceremony",
 			reception: ".itinerary-list-item.reception",
 			lodging: ".itinerary-list-item.hotel",
@@ -43,10 +50,23 @@ define([
 		*/
 		onClickCeremony: function() {
 			
-			this.getUI("ceremony").addClass("foobat");
-			console.log(this.getUI("ceremony"));
-			
+			this.getUI("ceremony").addClass("active");
 			//Backbone.history.navigate("ceremony");
+			
+			var ceremonyView = new MapLocationInfoView({
+				place_id: "ChIJx9NpL4mtLIgRkTrINbXVXWk",
+				center: { lat: 43.15280020000001, lng: -79.44592060000002 },
+				zoom: 11,
+				header_text: "Cave Spring Vineyard",
+				street_address: "4424 Cave Spring Road",
+				city_address: "Beamsville, Ontario L0R 1B1",
+				description: [
+					"The ceremony will take place outdoors at Cave Spring Vineyard. Please note this location is not the winery located in the Village of Jordan, but rather the vineyard for the winery.",
+					"In the case of inclement weather, the ceremony will be held at an indoor area at the same location."
+				]
+			});
+			
+			this.getRegion("details").show(ceremonyView);
 			
 		},
 		
