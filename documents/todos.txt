@@ -1,7 +1,7 @@
 ✓ Remove Google Maps as AMD module and use map's callback functionality to know when it has been loaded asynchronously
 ✓ Build process for combine css into single file
 ✓ Add birch tree background
+✓ Optimize images to reduce file size
 • Iterate on desktop responsive layout -- put navigation elements on left
 	• Encapsulate ceremony, reception, etc. data into models (they're used in more than one place -- keep data in models)
 	• Itinerary view may become mix in if used by multiple sub apps
-✓ Optimize images to reduce file size
