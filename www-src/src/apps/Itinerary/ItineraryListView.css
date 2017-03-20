@@ -12,40 +12,29 @@
 	min-height: 85px;	
 }
 .itinerary-list-view .itinerary-list-item .itinerary-list-icon {
-	border-radius: 50%;
 	width: 80px;
 	height: 80px;
-	background-color: #46403d;
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	box-shadow: 1px 1px 2px #46403d;
 	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 68px;
 }
 .itinerary-list-view .itinerary-list-item.ceremony .itinerary-list-icon {
-	background-image: url('../../../assets/splash/vineyard.jpg');
-	background-size: 85px;
+	background-image: url('../../../assets/icons/link.svg');
 }
 .itinerary-list-view .itinerary-list-item.reception .itinerary-list-icon {
-	background-image: url('../../../assets/splash/dining.jpg');
-	background-size: 85px;
+	background-image: url('../../../assets/icons/glass.svg');
 }
 .itinerary-list-view .itinerary-list-item.hotel .itinerary-list-icon {
-	background-image: url('../../../assets/splash/hotel.jpg');
-	background-size: 85px;
+	background-image: url('../../../assets/icons/briefcase.svg');
 }
 .itinerary-list-view .itinerary-list-item.registry .itinerary-list-icon {
-	background-image: url('../../../assets/splash/registry.jpg');
-	background-position: 0px 1px;
-	background-color: #fff;
-	background-size: 85px;
+	background-image: url('../../../assets/icons/gift.svg');
 }
 .itinerary-list-view .itinerary-list-item.rsvp .itinerary-list-icon {
-	background-color: #fff;
-	background-image: url('../../../assets/splash/rsvp.png');
-	background-position: 10px 18px;
-	background-size: 60px;
-	background-repeat: no-repeat;
+	background-image: url('../../../assets/icons/envelope.svg');
 }
 .itinerary-list-view .itinerary-list-item .itinerary-list-body {
 	margin-left: 90px;
