@@ -9,6 +9,11 @@ define([
 	'apps/Itinerary/DateLocationView',
 	'apps/Itinerary/ItineraryHeaderView',
 	'apps/Itinerary/ItineraryListView',
+	'apps/Lodging/LodgingView',
+	'apps/Registry/RegistryView',
+	'apps/Rsvp/RsvpView',
+	'entities/models/CeremonyLocationModel',
+	'entities/models/ReceptionLocationModel',
 	'mixins/MapLocationInfoView/MapLocationInfoView',
 	'text!apps/Itinerary/ItineraryView.html'
 ], function(
@@ -17,6 +22,11 @@ define([
 	DateLocationView,
 	ItineraryHeaderView,
 	ItineraryListView,
+	LodgingView,
+	RegistryView,
+	RsvpView,
+	CeremonyLocationModel,
+	ReceptionLocationModel,
 	MapLocationInfoView,
 	template
 ) {
@@ -34,26 +44,60 @@ define([
 		},
 		
 		/**
-			Event handler for when the ceremony navigation element is clicked
 			Displays the ceremony details in the itinerary info region
-			
+
 		*/
-		onClickCeremony: function() {
-			
+		showCeremony: function() {
+
 			var ceremonyView = new MapLocationInfoView({
-				place_id: "ChIJx9NpL4mtLIgRkTrINbXVXWk",
-				center: { lat: 43.15280020000001, lng: -79.44592060000002 },
-				zoom: 11,
-				header_text: "Cave Spring Vineyard",
-				street_address: "4424 Cave Spring Road",
-				city_address: "Beamsville, Ontario L0R 1B1",
-				description: [
-					"The ceremony will take place outdoors at Cave Spring Vineyard. Please note this location is not the winery located in the Village of Jordan, but rather the vineyard for the winery.",
-					"In the case of inclement weather, the ceremony will be held at an indoor area at the same location."
-				]
+				model: new CeremonyLocationModel()
 			});
 			
 			this.getRegion("itineraryInfo").show(ceremonyView);
+
+		},
+		
+		/**
+			Displays the reception details in the itinerary info region
+			
+		*/
+		showReception: function() {
+			
+			var receptionView = new MapLocationInfoView({
+				model: new ReceptionLocationModel()
+			});
+			
+			this.getRegion("itineraryInfo").show(receptionView);
+			
+		},
+		
+		/**
+		*/
+		showLodging: function() {
+			
+			var lodgingView = new LodgingView();
+			
+			this.getRegion("itineraryInfo").show(lodgingView);
+
+		},
+		
+		/**
+		*/
+		showRegistry: function() {
+			
+			var registryView = new RegistryView();
+			
+			this.getRegion("itineraryInfo").show(registryView);
+
+		},
+		
+		/**
+		*/
+		showRsvp: function() {
+			
+			var rsvpView = new RsvpView();
+			
+			this.getRegion("itineraryInfo").show(rsvpView);
 			
 		},
 		
@@ -61,15 +105,25 @@ define([
 		*/
 		onBeforeAttach: function() {
 			
+			// create child views
 			var header = new ItineraryHeaderView();
 			var dateLocation = new DateLocationView();
 			var itineraryList = new ItineraryListView();
 			
-			itineraryList.on("click:ceremony", this.onClickCeremony, this);
+			// attach event listeners for navigation events
+			this.listenTo(itineraryList, "click:ceremony", this.showCeremony, this);
+			this.listenTo(itineraryList, "click:reception", this.showReception, this);
+			this.listenTo(itineraryList, "click:lodging", this.showLodging, this);
+			this.listenTo(itineraryList, "click:registry", this.showRegistry, this);
+			this.listenTo(itineraryList, "click:rsvp", this.showRsvp, this);
 			
+			// populate regions with child views
 			this.getRegion("header").show(header);
 			this.getRegion("date").show(dateLocation);
 			this.getRegion("itinerary").show(itineraryList);
+			
+			// show the ceremony view by default
+			this.showCeremony();
 			
 		}
 		

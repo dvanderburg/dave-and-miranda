@@ -16,7 +16,7 @@
 	padding: 4px 0px 4px 4px;
 	position: relative;
 	min-height: 85px;
-	border-radius: 4px 0px 0px 4px;
+	border-radius: 6px;
 }
 .itinerary-list-view .itinerary-list-item.active {
 	background: #807673;

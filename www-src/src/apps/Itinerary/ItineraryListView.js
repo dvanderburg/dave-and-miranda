@@ -48,25 +48,11 @@ define([
 		
 		/**
 		*/
-		onClickCeremony: function() {
+		onClickCeremony: function(view, event) {
 			
-			this.getUI("ceremony").addClass("active");
-			//Backbone.history.navigate("ceremony");
-			
-			var ceremonyView = new MapLocationInfoView({
-				place_id: "ChIJx9NpL4mtLIgRkTrINbXVXWk",
-				center: { lat: 43.15280020000001, lng: -79.44592060000002 },
-				zoom: 11,
-				header_text: "Cave Spring Vineyard",
-				street_address: "4424 Cave Spring Road",
-				city_address: "Beamsville, Ontario L0R 1B1",
-				description: [
-					"The ceremony will take place outdoors at Cave Spring Vineyard. Please note this location is not the winery located in the Village of Jordan, but rather the vineyard for the winery.",
-					"In the case of inclement weather, the ceremony will be held at an indoor area at the same location."
-				]
-			});
-			
-			this.getRegion("details").show(ceremonyView);
+			$(".itinerary-list-item", this.el).removeClass("active");
+			$(".itinerary-list-item.ceremony", this.el).addClass("active");
+//			Backbone.history.navigate("ceremony");
 			
 		},
 		
@@ -74,8 +60,9 @@ define([
 		*/
 		onClickReception: function() {
 			
-			Backbone.history.navigate("reception");
-			Radio.channel("reception").trigger("show:reception");
+			$(".itinerary-list-item", this.el).removeClass("active");
+			$(".itinerary-list-item.reception", this.el).addClass("active");
+//			Backbone.history.navigate("reception");
 			
 		},
 		
@@ -83,8 +70,9 @@ define([
 		*/
 		onClickLodging: function() {
 			
-			Backbone.history.navigate("lodging");
-			Radio.channel("lodging").trigger("show:lodging");
+			$(".itinerary-list-item", this.el).removeClass("active");
+			$(".itinerary-list-item.hotel", this.el).addClass("active");
+// 			Backbone.history.navigate("lodging");
 			
 		},
 		
@@ -92,8 +80,9 @@ define([
 		*/
 		onClickRegistry: function() {
 			
-			Backbone.history.navigate("registry");
-			Radio.channel("registry").trigger("show:registry");
+			$(".itinerary-list-item", this.el).removeClass("active");
+			$(".itinerary-list-item.registry", this.el).addClass("active");
+// 			Backbone.history.navigate("registry");
 			
 		},
 		
@@ -101,8 +90,9 @@ define([
 		*/
 		onClickRsvp: function() {
 			
-			Backbone.history.navigate("rsvp");
-			Radio.channel("rsvp").trigger("show:rsvp");
+			$(".itinerary-list-item", this.el).removeClass("active");
+			$(".itinerary-list-item.rsvp", this.el).addClass("active");
+// 			Backbone.history.navigate("rsvp");
 			
 		},
 		

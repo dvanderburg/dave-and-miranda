@@ -36,15 +36,6 @@ define([
 			GoogleMapsLoader.version = "3.27";
 			GoogleMapsLoader.timeout = 5000;
 			
-			this.place_id = options.place_id;
-			this.center = options.center;
-			this.zoom = options.zoom
-			
-			this.header_text = options.header_text;
-			this.street_address = options.street_address;
-			this.city_address = options.city_address;
-			this.description = _.isArray(options.description) ? options.description : [ options.description ];	// ensure description is an array, each element will be made a paragraph
-			
 		},
 		
 		/**
@@ -98,14 +89,14 @@ define([
 			}
 			
 			var map = new GoogleMaps.Map(mapContainer, {
-				center: this.center,
-				zoom: this.zoom
+				center: this.model.get("center"),
+				zoom: this.model.get("zoom")
 			});
 			
 			var service = new GoogleMaps.places.PlacesService(map);
 			
 			service.getDetails({
-				placeId: this.place_id
+				placeId: this.model.get("place_id")
 			}, function(result, status) {
 				
 				var marker = new GoogleMaps.Marker({
@@ -125,14 +116,14 @@ define([
 		serializeData: function() {
 			
 			var description = "";
-			_.each(this.description, function(paragraph) {
+			_.each(this.model.get("description"), function(paragraph) {
 				description += "<p>"+paragraph+"</p>";
 			});
 			
 			return {
-				header_text: this.header_text,
-				street_address: this.street_address,
-				city_address: this.city_address,
+				header_text: this.model.get("name"),
+				street_address: this.model.get("street_address"),
+				city_address: this.model.get("city_address"),
 				description: description
 			}
 			

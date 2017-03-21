@@ -5,3 +5,5 @@
 • Iterate on desktop responsive layout -- put navigation elements on left
 	• Encapsulate ceremony, reception, etc. data into models (they're used in more than one place -- keep data in models)
 	• Itinerary view may become mix in if used by multiple sub apps
+• Increase font size and change color/layout of date heading
+• Refactor "location" models to use an id attribute to load their attributes fro a local module

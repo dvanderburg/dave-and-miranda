@@ -28,6 +28,7 @@
 	left: 0px;
 	display: none;
 	background-image: url('../../../assets/splash/birch_left.png');
+	background-position-x: right;
 }
 .itinerary-view .itinerary-background.itinerary-background-right {
 	right: 0px;
@@ -46,16 +47,17 @@
 	}
 	
 	.itinerary-view .itinerary-container {
-		width: 60%;
+		width: 75%;
 	}
 	
 	.itinerary-view .itinerary-background {
 		opacity: 0.35;
 		width: 230px;
+		display: none;
 	}
 	
 	.itinerary-view .itinerary-background.itinerary-background-left {
-		display: block;
+/* 		display: block; */
 	}
 	
 	.itinerary-view .itinerary-list-region {
@@ -66,11 +68,16 @@
 	.itinerary-view .itinerary-info-region {
 		width: 66%;
 		float: right;
+		display: block;
 	}
 
 }
 
 /* wide display break */
 @media screen and (min-width: 1200px) { 
+
+	.itinerary-view .itinerary-container {
+		width: 80%;
+	}
 	
 }
