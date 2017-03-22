@@ -22,7 +22,7 @@
 	background-size: 68px;
 }
 .itinerary-list-view .itinerary-list-item.ceremony .itinerary-list-icon {
-	background-image: url('../../../assets/icons/link.svg');
+	background-image: url('../../../assets/icons/rings.svg');
 }
 .itinerary-list-view .itinerary-list-item.reception .itinerary-list-icon {
 	background-image: url('../../../assets/icons/glass.svg');
