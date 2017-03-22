@@ -3,12 +3,16 @@
 define([
 	'marionette',
 	'backbone.radio',
+	'apps/Itinerary/ItineraryView',
+	'apps/Itinerary/ItineraryListView',
 	'mixins/MapLocationInfoView/MapLocationInfoView',
 	'mixins/NavigationHeaderLayout/NavigationHeaderView',
 	'mixins/NavigationHeaderLayout/NavigationHeaderLayout'
 ], function(
 	Marionette,
 	Radio,
+	ItineraryView,
+	ItineraryListView,
 	MapLocationInfoView,
 	NavigationHeaderView,
 	NavigationHeaderLayout
@@ -25,6 +29,13 @@ define([
 		/**
 		*/
 		showCeremony: function() {
+			
+			var itineraryView = new ItineraryView({
+				section: ItineraryListView.CEREMONY
+			});
+			
+			Radio.channel("app").trigger("show:content", itineraryView);
+			return;
 			
 			var navigationHeaderView = new NavigationHeaderView({
 				header_text: "Ceremony"

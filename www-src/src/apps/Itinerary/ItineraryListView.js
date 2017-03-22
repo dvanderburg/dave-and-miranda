@@ -1,6 +1,11 @@
 /**
 	View to display the various itinerary items in a list
 	
+	Options
+		section		Indicates which section of the itinerary should be highlighted when the view is rendered
+						Supply view constants (ItineraryListView.CEREMONY)
+						If none is provided, no section will be highlighted
+	
 	Triggers
 		When any of the itinerary items are clicked, a "click" event is triggered to indicate which item was clicked
 		See the view triggers for specific names
@@ -19,6 +24,14 @@ define([
 	MapLocationInfoView,
 	Templates
 ) {
+	
+	// constants representing each itinerary item in the ist
+	//	exported as static view constants
+	var CEREMONY = "ceremony";
+	var RECEPTION = "reception";
+	var LODGING = "hotel";
+	var REGISTRY = "registry";
+	var RSVP = "rsvp";
 	
 	return Marionette.View.extend({
 		
@@ -47,53 +60,45 @@ define([
 		},
 		
 		/**
+			Highlights an itinerary item in the list by the given section ID
+			@param	const	sectionID		The section ID of the itinerary item, check view constants (ItineraryListView.CEREMONY, etc.)
+			
 		*/
-		onClickCeremony: function(view, event) {
+		highlightItinerary: function(sectionID) {
 			
 			$(".itinerary-list-item", this.el).removeClass("active");
-			$(".itinerary-list-item.ceremony", this.el).addClass("active");
-//			Backbone.history.navigate("ceremony");
+			$(".itinerary-list-item."+sectionID, this.el).addClass("active");
 			
+		},
+		
+		/**
+		*/
+		onClickCeremony: function(view, event) {
+			this.highlightItinerary(CEREMONY);
 		},
 		
 		/**
 		*/
 		onClickReception: function() {
-			
-			$(".itinerary-list-item", this.el).removeClass("active");
-			$(".itinerary-list-item.reception", this.el).addClass("active");
-//			Backbone.history.navigate("reception");
-			
+			this.highlightItinerary(RECEPTION);
 		},
 		
 		/**
 		*/
 		onClickLodging: function() {
-			
-			$(".itinerary-list-item", this.el).removeClass("active");
-			$(".itinerary-list-item.hotel", this.el).addClass("active");
-// 			Backbone.history.navigate("lodging");
-			
+			this.highlightItinerary(LODGING);
 		},
 		
 		/**
 		*/
 		onClickRegistry: function() {
-			
-			$(".itinerary-list-item", this.el).removeClass("active");
-			$(".itinerary-list-item.registry", this.el).addClass("active");
-// 			Backbone.history.navigate("registry");
-			
+			this.highlightItinerary(REGISTRY);
 		},
 		
 		/**
 		*/
 		onClickRsvp: function() {
-			
-			$(".itinerary-list-item", this.el).removeClass("active");
-			$(".itinerary-list-item.rsvp", this.el).addClass("active");
-// 			Backbone.history.navigate("rsvp");
-			
+			this.highlightItinerary(RSVP);
 		},
 		
 		/**
@@ -148,9 +153,20 @@ define([
 				heading: "RSVP",
 				information: "Invitations will follow the Save the Date cards with RSVP details.",
 			}));
+			
+			// highlight the appropriate section, if one was specified
+			if (!_.isUndefined(this.options.section)) {
+				this.highlightItinerary(this.options.section);
+			}
 						
 		}
 		
+	}, {
+		CEREMONY: CEREMONY,
+		RECEPTION: RECEPTION,
+		LODGING: LODGING,
+		REGISTRY: REGISTRY,
+		RSVP: RSVP,
 	});
 	
 });

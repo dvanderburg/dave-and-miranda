@@ -2,6 +2,12 @@
 	View to serve as a layout for the wedding program/itinerary
 	Arranges child views to display a program header along
 	
+	Options
+		section		Indicates which section of the itinerary should be highlighted when the view is rendered
+						Supply ItineraryListView constants (ItineraryListView.CEREMONY)
+						If none is provided, no section will be highlighted
+
+	
 */
 define([
 	'backbone',
@@ -44,10 +50,29 @@ define([
 		},
 		
 		/**
+		*/
+		showSection: function(sectionID) {
+			
+			// build a mapping of section IDs to their respective "show" functions
+			var sectionMapping = {}
+			sectionMapping[ItineraryListView.CEREMONY] = this.showCeremony;
+			sectionMapping[ItineraryListView.RECEPTION] = this.showReception;
+			sectionMapping[ItineraryListView.LODGING] = this.showLodging;
+			sectionMapping[ItineraryListView.REGISTRY] = this.showRegistry;
+			sectionMapping[ItineraryListView.RSVP] = this.showRsvp;
+			
+			// call the appropriate show function in scope of this view
+			sectionMapping[sectionID].apply(this);
+			
+		},
+		
+		/**
 			Displays the ceremony details in the itinerary info region
 
 		*/
 		showCeremony: function() {
+			
+			Backbone.history.navigate("ceremony");
 
 			var ceremonyView = new MapLocationInfoView({
 				model: new CeremonyLocationModel()
@@ -62,6 +87,8 @@ define([
 			
 		*/
 		showReception: function() {
+
+			Backbone.history.navigate("reception");
 			
 			var receptionView = new MapLocationInfoView({
 				model: new ReceptionLocationModel()
@@ -75,6 +102,8 @@ define([
 		*/
 		showLodging: function() {
 			
+			Backbone.history.navigate("lodging");
+			
 			var lodgingView = new LodgingView();
 			
 			this.getRegion("itineraryInfo").show(lodgingView);
@@ -84,6 +113,8 @@ define([
 		/**
 		*/
 		showRegistry: function() {
+			
+			Backbone.history.navigate("registry");
 			
 			var registryView = new RegistryView();
 			
@@ -95,6 +126,8 @@ define([
 		*/
 		showRsvp: function() {
 			
+			Backbone.history.navigate("rsvp");
+			
 			var rsvpView = new RsvpView();
 			
 			this.getRegion("itineraryInfo").show(rsvpView);
@@ -105,10 +138,14 @@ define([
 		*/
 		onBeforeAttach: function() {
 			
+			var section = _.isUndefined(this.options.section) ? ItineraryListView.CEREMONY : this.options.section;
+			
 			// create child views
 			var header = new ItineraryHeaderView();
 			var dateLocation = new DateLocationView();
-			var itineraryList = new ItineraryListView();
+			var itineraryList = new ItineraryListView({
+				section: section
+			});
 			
 			// attach event listeners for navigation events
 			this.listenTo(itineraryList, "click:ceremony", this.showCeremony, this);
@@ -123,7 +160,7 @@ define([
 			this.getRegion("itinerary").show(itineraryList);
 			
 			// show the ceremony view by default
-			this.showCeremony();
+			this.showSection(section);
 			
 		}
 		

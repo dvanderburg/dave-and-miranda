@@ -62,12 +62,7 @@ requirejs([
 		
 	// boostrap subapplication routers
 	//	this registers all subapps that use routing
-	application.addRouter(new CeremonyRouter());
 	application.addRouter(new ItineraryRouter());
-	application.addRouter(new LodgingRouter());
-	application.addRouter(new ReceptionRouter());
-	application.addRouter(new RegistryRouter());
-	application.addRouter(new RsvpRouter());
 
 	// start the application
 	application.start();
