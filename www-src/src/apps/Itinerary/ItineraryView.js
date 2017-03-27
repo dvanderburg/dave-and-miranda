@@ -1,6 +1,7 @@
 /**
 	View to serve as a layout for the wedding program/itinerary
-	Arranges child views to display a program header along
+	Displays each piece of itinerary within an ItineraryListView
+	Clicking any item in the itinerary list will display details in a details region
 	
 	Options
 		section		Indicates which section of the itinerary should be highlighted when the view is rendered
@@ -45,8 +46,18 @@ define([
 		regions: {
 			header: ".header-region",
 			date: ".date-region",
-			itinerary: ".itinerary-list-region",
+			itineraryList: ".itinerary-list-region",
 			itineraryInfo: ".itinerary-info-region"
+		},
+		
+		/**
+		*/
+		setItineraryInfoVisible: function(value) {
+			
+			// toggle both this view, and the header view into a state indicating the user is viewing a specific section
+			this.$el.addClass("itinerary-info-visible");
+			this.getRegion("header").currentView.setLargeHeaderMode(false);
+			
 		},
 		
 		/**
@@ -72,14 +83,17 @@ define([
 		*/
 		showCeremony: function() {
 			
-			Backbone.history.navigate("ceremony");
-
+			// create a map location info view with the ceremony location details
 			var ceremonyView = new MapLocationInfoView({
 				model: new CeremonyLocationModel()
 			});
 			
+			// update the small header text of the header view
+			this.getRegion("header").currentView.setSmallHeaderText("Ceremony");
+			
+			// display the ceremony location in the itinerary info region
 			this.getRegion("itineraryInfo").show(ceremonyView);
-
+			
 		},
 		
 		/**
@@ -88,12 +102,15 @@ define([
 		*/
 		showReception: function() {
 
-			Backbone.history.navigate("reception");
-			
+			// create a map location info view to display reception details
 			var receptionView = new MapLocationInfoView({
 				model: new ReceptionLocationModel()
 			});
 			
+			// update the small header text of the header view
+			this.getRegion("header").currentView.setSmallHeaderText("Reception");
+			
+			// display the reception view in the itinerary info region
 			this.getRegion("itineraryInfo").show(receptionView);
 			
 		},
@@ -102,33 +119,36 @@ define([
 		*/
 		showLodging: function() {
 			
-			Backbone.history.navigate("lodging");
-			
+			// create a logiding view to display hotel details
 			var lodgingView = new LodgingView();
 			
-			this.getRegion("itineraryInfo").show(lodgingView);
+			// update the small header text of the header view
+			this.getRegion("header").currentView.setSmallHeaderText("Where to Stay");
 
+			// display the logding view in the itinerary info region
+			this.getRegion("itineraryInfo").show(lodgingView);
+			
 		},
 		
 		/**
 		*/
 		showRegistry: function() {
 			
-			Backbone.history.navigate("registry");
-			
 			var registryView = new RegistryView();
 			
+			this.getRegion("header").currentView.setSmallHeaderText("Registry");
+			
 			this.getRegion("itineraryInfo").show(registryView);
-
+			
 		},
 		
 		/**
 		*/
 		showRsvp: function() {
 			
-			Backbone.history.navigate("rsvp");
-			
 			var rsvpView = new RsvpView();
+			
+			this.getRegion("header").currentView.setSmallHeaderText("RVSP");
 			
 			this.getRegion("itineraryInfo").show(rsvpView);
 			
@@ -138,29 +158,29 @@ define([
 		*/
 		onBeforeAttach: function() {
 			
-			var section = _.isUndefined(this.options.section) ? ItineraryListView.CEREMONY : this.options.section;
+			// determine which section to show, defaulting to ceremony
+			var section = (!this.options.section) ? ItineraryListView.CEREMONY : this.options.section;
 			
 			// create child views
 			var header = new ItineraryHeaderView();
-			var dateLocation = new DateLocationView();
 			var itineraryList = new ItineraryListView({
 				section: section
 			});
 			
-			// attach event listeners for navigation events
-			this.listenTo(itineraryList, "click:ceremony", this.showCeremony, this);
-			this.listenTo(itineraryList, "click:reception", this.showReception, this);
-			this.listenTo(itineraryList, "click:lodging", this.showLodging, this);
-			this.listenTo(itineraryList, "click:registry", this.showRegistry, this);
-			this.listenTo(itineraryList, "click:rsvp", this.showRsvp, this);
-			
 			// populate regions with child views
 			this.getRegion("header").show(header);
-			this.getRegion("date").show(dateLocation);
-			this.getRegion("itinerary").show(itineraryList);
+			this.getRegion("itineraryList").show(itineraryList);
 			
-			// show the ceremony view by default
+			// show the appropriate section
 			this.showSection(section);
+			
+			// if a section was explicitly set to be displayed, set the itinerary info visible to true
+			//	this is primarily for narrow (mobile) layouts
+			//	instead of a list of itinerary being visible, only the info for the specific section will be visible
+			//	this is only applicable for narrow layout since the wide layout always shows the list
+			if (this.options.section) {
+				this.setItineraryInfoVisible(true);
+			}
 			
 		}
 		

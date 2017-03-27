@@ -36,8 +36,18 @@
 	background-position-y: 164px;
 }
 
+/* the "itinerary-info-visible" class is added when an itinerary item is clicked in the list
+	for narrow layout (mobile) this should hide the list and display just the info/details */
+.itinerary-view.itinerary-info-visible .itinerary-list-region {
+	display: none;
+}
+.itinerary-view.itinerary-info-visible .itinerary-info-region {
+	display: block;
+}
+
+
 /* desktop break */
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1000px) {
 	
 	.itinerary-view:after {
 		width: 95%;
@@ -47,7 +57,7 @@
 	}
 	
 	.itinerary-view .itinerary-container {
-		width: 75%;
+		width: 80%;
 	}
 	
 	.itinerary-view .itinerary-background {
@@ -61,23 +71,23 @@
 	}
 	
 	.itinerary-view .itinerary-list-region {
-		width: 33%;
+		width: 40%;
 		float: left;
 	}
 	
 	.itinerary-view .itinerary-info-region {
-		width: 66%;
+		width: 60%;
 		float: right;
 		display: block;
 	}
 
-}
-
-/* wide display break */
-@media screen and (min-width: 1200px) { 
-
-	.itinerary-view .itinerary-container {
-		width: 80%;
+	/* the "itinerary-info-visible" class is added when an itinerary item is clicked in the list
+		for wide layout (desktop) this should not do anything sinde both sections are meant to be visible at all times */
+	.itinerary-view.itinerary-info-visible .itinerary-list-region {
+		display: block;
+	}
+	.itinerary-view.itinerary-info-visible .itinerary-info-region {
+		display: block;
 	}
 	
 }

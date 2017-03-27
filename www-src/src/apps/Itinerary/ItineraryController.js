@@ -14,6 +14,17 @@ define([
 	
 	return Marionette.Object.extend({
 		
+		channelName: "itinerary",
+		
+		radioEvents: {
+			"show:ceremony": "showCeremony",
+			"show:itinerary": "showItinerary",
+			"show:lodging": "showLodging",
+			"show:reception": "showReception",
+			"show:registry": "showRegistry",
+			"show:rsvp": "showRsvp"
+		},
+		
 		/**
 		*/
 		showCeremony: function() {
@@ -24,11 +35,11 @@ define([
 		*/
 		showItinerary: function(section) {
 			
-			// default for landing page
-			if (_.isUndefined(section)) {
-				section = ItineraryListView.CEREMONY;
-			}
-			
+			// create an itinerary view set to show the provided section
+			//	if no section was provided, should default to a list of all itinerary items
+			//	the exact display depends on if the app is in wide (desktop) or narrow (mobile) layout
+			//	expected behaviour for wide layout is to display the ceremony details
+			//	expected behaviour for narrow layout is to display a list of all itinerary
 			var itineraryView = new ItineraryView({
 				section: section
 			});

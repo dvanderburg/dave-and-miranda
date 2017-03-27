@@ -73,32 +73,42 @@ define([
 		
 		/**
 		*/
-		onClickCeremony: function(view, event) {
+		onClickCeremony: function() {		
 			this.highlightItinerary(CEREMONY);
+			Backbone.history.navigate("ceremony");
+			Radio.channel("itinerary").trigger("show:ceremony");
 		},
 		
 		/**
 		*/
 		onClickReception: function() {
 			this.highlightItinerary(RECEPTION);
+			Backbone.history.navigate("reception");
+			Radio.channel("itinerary").trigger("show:reception");
 		},
 		
 		/**
 		*/
 		onClickLodging: function() {
 			this.highlightItinerary(LODGING);
+			Backbone.history.navigate("lodging");
+			Radio.channel("itinerary").trigger("show:lodging");
 		},
 		
 		/**
 		*/
 		onClickRegistry: function() {
 			this.highlightItinerary(REGISTRY);
+			Backbone.history.navigate("registry");
+			Radio.channel("itinerary").trigger("show:registry");
 		},
 		
 		/**
 		*/
 		onClickRsvp: function() {
 			this.highlightItinerary(RSVP);
+			Backbone.history.navigate("rsvp");
+			Radio.channel("itinerary").trigger("show:rsvp");
 		},
 		
 		/**

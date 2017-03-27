@@ -18,9 +18,6 @@
 	min-height: 85px;
 	border-radius: 6px;
 }
-.itinerary-list-view .itinerary-list-item.active {
-	background: #807673;
-}
 .itinerary-list-view .itinerary-list-item .itinerary-list-icon {
 	width: 80px;
 	height: 80px;
@@ -66,4 +63,11 @@
 	font-size: 14px;
 	padding: 2px 0px;
 	text-shadow: 1px 1px 1px #333;
+}
+
+/* desktop break */
+@media screen and (min-width: 1000px) {
+	.itinerary-list-view .itinerary-list-item.active {
+		background: #807673;
+	}
 }

@@ -4,6 +4,9 @@
 ✓ Optimize images to reduce file size
 • Iterate on desktop responsive layout -- put navigation elements on left
 	• Encapsulate ceremony, reception, etc. data into models (they're used in more than one place -- keep data in models)
-	• Itinerary view may become mix in if used by multiple sub apps
+	• Tweak widths of itinerary list and info -- becomes a little cramped before break point
+	• Add some padding or margin between list of itinerary and itinerary info for wide (desktop) layout
+	• Implement fixed position header for narrow (mobile) when viewing itinerary info
+	• Remove no longer needed sub apps -- itinerary app now contains all views related to viewing itinerary and details
 • Increase font size and change color/layout of date heading
 • Refactor "location" models to use an id attribute to load their attributes fro a local module
