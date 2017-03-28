@@ -13,7 +13,6 @@
 
 .itinerary-list-view .itinerary-list-item {
 	margin: 4px auto;
-	padding: 4px 0px 4px 4px;
 	position: relative;
 	min-height: 85px;
 	border-radius: 6px;
@@ -45,6 +44,7 @@
 }
 .itinerary-list-view .itinerary-list-item .itinerary-list-body {
 	margin-left: 90px;
+	padding: 4px;
 	position: absolute;
 	top: 40%;
 	transform: translateY(-40%);

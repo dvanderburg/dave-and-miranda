@@ -71,12 +71,14 @@
 	}
 	
 	.itinerary-view .itinerary-list-region {
-		width: 40%;
+		width: 39%;
+		padding: 0px 0.5%;
 		float: left;
 	}
 	
 	.itinerary-view .itinerary-info-region {
-		width: 60%;
+		width: 59%;
+		padding: 0px 0.5%;
 		float: right;
 		display: block;
 	}
