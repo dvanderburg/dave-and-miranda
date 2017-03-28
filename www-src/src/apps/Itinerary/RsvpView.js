@@ -2,7 +2,7 @@
 */
 define([
 	'marionette',
-	'text!apps/Registry/RegistryView.html'
+	'text!apps/Itinerary/RsvpView.html'
 ], function(
 	Marionette,
 	template
@@ -10,7 +10,7 @@ define([
 	
 	return Marionette.View.extend({
 		
-		className: "registry-view",
+		className: "rsvp-view",
 		template: _.template(template)
 		
 	});
