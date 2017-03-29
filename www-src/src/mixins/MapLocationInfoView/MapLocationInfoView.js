@@ -11,20 +11,21 @@ define([
 	GoogleMapsLoader,
 	MapLoadingView,
 	MapReloadView,
-	template
+	Templates
 ) {
 	
 	return Marionette.View.extend({
 		
 		className: "map-location-info-view",
-		template: _.template(template),
+		template: _.template($(Templates).filter("#map-location-layout").html()),
 		
 		regions: {
 			map: ".location-map"
 		},
 		
 		ui: {
-			map: ".location-map"
+			map: ".location-map",
+			googleMapsLink: ".google-maps-link"
 		},
 		
 		/**
@@ -79,6 +80,8 @@ define([
 		*/
 		attachMap: function(GoogleMaps) {
 			
+			var that = this;
+			
 			var mapContainer = this.getUI("map")[0];
 			
 			// if the map container is not on the dom the view must have been closed
@@ -99,13 +102,29 @@ define([
 				placeId: this.model.get("place_id")
 			}, function(result, status) {
 				
+				// create template function for the content of the info window
+				var infoWindowTmpl = _.template($(Templates).filter("#map-info-window").html());
+				
+				// create an info window for when the marker is clicked
+				var infoWindow = new GoogleMaps.InfoWindow({
+					content: infoWindowTmpl(result)
+				});
+				
+				// place a marker on the map labeled with the name of the location
 				var marker = new GoogleMaps.Marker({
 					map: map,
 					place: {
 						placeId: result.place_id,
 						location: result.geometry.location
-					}
+					},
+					label: result.name
 				});
+				
+				// open the info window, pointing to the market
+				infoWindow.open(map, marker);
+				
+				// set the href of the open in google maps link
+				$(that.getUI("googleMapsLink")).attr({ href: result.url }).css({ visibility: "visible" });
 				
 			});
 			

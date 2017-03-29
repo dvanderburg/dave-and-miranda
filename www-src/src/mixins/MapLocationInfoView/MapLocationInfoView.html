@@ -1,10 +1,21 @@
-<div class="location-details">
-	<h2><%= header_text %></h2>
-	<div class="address">
-		<div class="street-and-number"><%= street_address %></div>
-		<div class="city-and-postal"><%= city_address %></div>
+<script id="map-location-layout" type="text/html">
+	<div class="location-details">
+		<h2><%= header_text %></h2>
+		<div class="address">
+			<div class="street-and-number"><%= street_address %></div>
+			<div class="city-and-postal"><%= city_address %></div>
+		</div>
+		<%= description %>
 	</div>
-	<%= description %>
-</div>
+	
+	<section class="location-map"></section>
+	<a class="google-maps-link" href="https://maps.google.com/" target="_blank">Open in Google Maps</a>
+</script>
 
-<section class="location-map"></section>
+<script id="map-info-window">
+	<div class="map-info-window">
+		<h1><%= name %></h1>
+		<p><%= vicinity %></p>
+		<a href="<%= url %>" target="_blank">Open in Google Maps</a>
+	<div>
+</script>
