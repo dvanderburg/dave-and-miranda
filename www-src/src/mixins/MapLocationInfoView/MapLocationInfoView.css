@@ -42,6 +42,6 @@
 .map-location-info-view .map-info-window a {
 	color: #9c6612;
 	padding: 1px 18px 0px 0px;
-	background: transparent url('./../../../assets/icons/new-tab-dark.svg') no-repeat center right;
+	background: transparent url('../../../assets/icons/new-tab-dark.svg') no-repeat center right;
 	background-size: 16px;
 }
