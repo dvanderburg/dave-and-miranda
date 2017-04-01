@@ -24,8 +24,7 @@ define([
 		},
 		
 		ui: {
-			map: ".location-map",
-			googleMapsLink: ".google-maps-link"
+			map: ".location-map"
 		},
 		
 		/**
@@ -116,15 +115,16 @@ define([
 					place: {
 						placeId: result.place_id,
 						location: result.geometry.location
-					},
-					label: result.name
+					}
 				});
 				
-				// open the info window, pointing to the market
+				// open the info window, pointing to the marker
 				infoWindow.open(map, marker);
 				
-				// set the href of the open in google maps link
-				$(that.getUI("googleMapsLink")).attr({ href: result.url }).css({ visibility: "visible" });
+				// open the info window any time the marker is clicked
+				marker.addListener("click", function() {
+					infoWindow.open(map, marker);
+				});
 				
 			});
 			

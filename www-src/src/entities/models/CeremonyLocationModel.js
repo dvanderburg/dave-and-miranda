@@ -21,7 +21,7 @@ define([
 		
 		defaults: {
 			place_id: "ChIJx9NpL4mtLIgRkTrINbXVXWk",
-			center: { lat: 43.15280020000001, lng: -79.44592060000002 },
+			center: { lat: 43.18280020000001, lng: -79.44592060000002 },
 			zoom: 11,
 			name: "Cave Spring Vineyard",
 			street_address: "4424 Cave Spring Road",

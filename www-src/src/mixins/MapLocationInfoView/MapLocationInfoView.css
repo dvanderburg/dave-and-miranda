@@ -45,14 +45,3 @@
 	background: transparent url('./../../../assets/icons/new-tab-dark.svg') no-repeat center right;
 	background-size: 16px;
 }
-
-.map-location-info-view .google-maps-link {
-	visibility: hidden;
-	font-size: 16px;
-	position: relative;
-	top: 3px;
-	left: 3px;
-	padding: 0px 18px 0px 0px;
-	background: transparent url('./../../../assets/icons/new-tab.svg') no-repeat center right;
-	background-size: 16px;
-}

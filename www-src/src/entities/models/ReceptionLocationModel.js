@@ -21,7 +21,7 @@ define([
 		
 		defaults: {
 			place_id: "ChIJhQsx0PxI04kRF6AipEcYixI",
-			center: { lat: 43.149194, lng: -79.36837300000002 },
+			center: { lat: 43.165194, lng: -79.36837300000002 },
 			zoom: 12,
 			name: "Inn on the Twenty",
 			street_address: "3845 Main Street",
