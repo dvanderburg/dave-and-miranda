@@ -21,13 +21,15 @@ define([
 		
 		defaults: {
 			place_id: "ChIJx9NpL4mtLIgRkTrINbXVXWk",
-			center: { lat: 43.18280020000001, lng: -79.44592060000002 },
+			center: { lat: 43.18780020000001, lng: -79.44592060000002 },
 			zoom: 11,
 			name: "Cave Spring Vineyard",
 			street_address: "4424 Cave Spring Road",
 			city_address: "Beamsville, Ontario L0R 1B1",
 			description: [
-				"The ceremony will take place outdoors at Cave Spring Vineyard. Please note this location is not the winery located in the Village of Jordan, but rather the vineyard for the winery.",
+				"The ceremony will take place outdoors at Cave Spring Vineyard. Please note this location is not the winery located in the Village of Jordan, but the vineyard located in Beamsville. From King Street, turn onto Cave Spring Road and follow signage for ceremony parking.",
+// 				"If arriving from Niagara: Follow QEW to Victoria Avenue (exit 57). Head south on Victoria Avenue until reaching King Street. Head west on King Street and look for Cave Spring Road. Turn left on Cave Spring Road and follow signage for the ceremony parking.",
+// 				"If arriving from Toronto: Follow QEW to Ontario Street (exit 64). Head south on Ontario Street until reaching King Street. Head east on King Street and look for Cave Spring Road. Turn right on Cave Spring Road and follow signage for the ceremony parking.",
 				"In the case of inclement weather, the ceremony will be held at an indoor area at the same location."
 			]
 		}

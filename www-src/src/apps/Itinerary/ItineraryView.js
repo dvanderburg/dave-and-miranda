@@ -148,7 +148,7 @@ define([
 			
 			var rsvpView = new RsvpView();
 			
-			this.getRegion("header").currentView.setSmallHeaderText("RVSP");
+			this.getRegion("header").currentView.setSmallHeaderText("RSVP");
 			
 			this.getRegion("itineraryInfo").show(rsvpView);
 			

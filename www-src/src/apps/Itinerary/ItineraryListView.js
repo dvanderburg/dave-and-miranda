@@ -146,7 +146,7 @@ define([
 				class_name: "hotel",
 				heading: "Where to Stay",
 				information: "Rooms have been held at both Inn on the Twenty as well as the Jordan House.",
-				action: "Tap for booking",
+				action: "Tap for booking information",
 				href: "#lodging"
 			}));
 			
@@ -158,10 +158,12 @@ define([
 				href: "#registry"
 			}));
 			
-			this.$el.append(listItemInfoNoLinkTemplate({
+			this.$el.append(listItemInfoTemplate({
 				class_name: "rsvp",
 				heading: "RSVP",
-				information: "Invitations will follow the Save the Date cards with RSVP details.",
+				information: "Please respond by August 4th.",
+				action: "Tap for information",
+				href: "#rsvp"
 			}));
 			
 			// highlight the appropriate section, if one was specified
