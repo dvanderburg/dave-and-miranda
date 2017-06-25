@@ -31,4 +31,15 @@
 .lodging-view .lodging-expiry {
 	text-align: center;
 	line-height: 1.33em;
+	color: #e8e4e2;
+}
+
+.lodging-view .lodging-alternative {
+	text-align: center;
+	padding: 24px 12px;
+}
+
+/* desktop break */
+@media screen and (min-width: 1000px) {
+	padding: 24px 32px;
 }
