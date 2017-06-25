@@ -1,23 +1,49 @@
-	/**
+/**
+	View to display the various itinerary items in a list
+	
+	Options
+		section		Indicates which section of the itinerary should be highlighted when the view is rendered
+						Supply view constants (ItineraryListView.CEREMONY)
+						If none is provided, no section will be highlighted
+	
+	Triggers
+		When any of the itinerary items are clicked, a "click" event is triggered to indicate which item was clicked
+		See the view triggers for specific names
+	
 */
 define([
 	'backbone',
 	'marionette',
 	'backbone.radio',
+	'mixins/MapLocationInfoView/MapLocationInfoView',
 	'text!apps/Itinerary/ItineraryListView.html'
 ], function(
 	Backbone,
 	Marionette,
 	Radio,
+	MapLocationInfoView,
 	Templates
 ) {
+	
+	// constants representing each itinerary item in the ist
+	//	exported as static view constants
+	var CEREMONY = "ceremony";
+	var RECEPTION = "reception";
+	var LODGING = "hotel";
+	var REGISTRY = "registry";
+	var RSVP = "rsvp";
 	
 	return Marionette.View.extend({
 		
 		className: "itinerary-list-view",
-		template: _.noop,
+		template: _.template($(Templates).filter("#itinerary-list-layout").html()),
+		
+		regions: {
+			details: "section.itinerary-item-details"
+		},
 		
 		ui: {
+			listContainer: "section.itinerary-list",
 			ceremony: ".itinerary-list-item.ceremony",
 			reception: ".itinerary-list-item.reception",
 			lodging: ".itinerary-list-item.hotel",
@@ -25,57 +51,64 @@ define([
 			rsvp: ".itinerary-list-item.rsvp",
 		},
 		
-		events: {
-			"click @ui.ceremony": "onClickCeremony",
-			"click @ui.reception": "onClickReception",
-			"click @ui.lodging": "onClickLodging",
-			"click @ui.registry": "onClickRegistry",
-			"click @ui.rsvp": "onClickRsvp"
+		triggers: {
+			"click @ui.ceremony": "click:ceremony",
+			"click @ui.reception": "click:reception",
+			"click @ui.lodging": "click:lodging",
+			"click @ui.registry": "click:registry",
+			"click @ui.rsvp": "click:rsvp"
+		},
+		
+		/**
+			Highlights an itinerary item in the list by the given section ID
+			@param	const	sectionID		The section ID of the itinerary item, check view constants (ItineraryListView.CEREMONY, etc.)
+			
+		*/
+		highlightItinerary: function(sectionID) {
+			
+			$(".itinerary-list-item", this.el).removeClass("active");
+			$(".itinerary-list-item."+sectionID, this.el).addClass("active");
+			
 		},
 		
 		/**
 		*/
-		onClickCeremony: function() {
-			
+		onClickCeremony: function() {		
+			this.highlightItinerary(CEREMONY);
 			Backbone.history.navigate("ceremony");
-			Radio.channel("ceremony").trigger("show:ceremony");
-			
+			Radio.channel("itinerary").trigger("show:ceremony");
 		},
 		
 		/**
 		*/
 		onClickReception: function() {
-			
+			this.highlightItinerary(RECEPTION);
 			Backbone.history.navigate("reception");
-			Radio.channel("reception").trigger("show:reception");
-			
+			Radio.channel("itinerary").trigger("show:reception");
 		},
 		
 		/**
 		*/
 		onClickLodging: function() {
-			
+			this.highlightItinerary(LODGING);
 			Backbone.history.navigate("lodging");
-			Radio.channel("lodging").trigger("show:lodging");
-			
+			Radio.channel("itinerary").trigger("show:lodging");
 		},
 		
 		/**
 		*/
 		onClickRegistry: function() {
-			
+			this.highlightItinerary(REGISTRY);
 			Backbone.history.navigate("registry");
-			Radio.channel("registry").trigger("show:registry");
-			
+			Radio.channel("itinerary").trigger("show:registry");
 		},
 		
 		/**
 		*/
 		onClickRsvp: function() {
-			
+			this.highlightItinerary(RSVP);
 			Backbone.history.navigate("rsvp");
-			Radio.channel("rsvp").trigger("show:rsvp");
-			
+			Radio.channel("itinerary").trigger("show:rsvp");
 		},
 		
 		/**
@@ -113,7 +146,7 @@ define([
 				class_name: "hotel",
 				heading: "Where to Stay",
 				information: "Rooms have been held at both Inn on the Twenty as well as the Jordan House.",
-				action: "Tap for booking",
+				action: "Tap for booking information",
 				href: "#lodging"
 			}));
 			
@@ -125,14 +158,27 @@ define([
 				href: "#registry"
 			}));
 			
-			this.$el.append(listItemInfoNoLinkTemplate({
+			this.$el.append(listItemInfoTemplate({
 				class_name: "rsvp",
 				heading: "RSVP",
-				information: "Invitations will follow the Save the Date cards with RSVP details.",
+				information: "Please respond by August 4th.",
+				action: "Tap for information",
+				href: "#rsvp"
 			}));
+			
+			// highlight the appropriate section, if one was specified
+			if (!_.isUndefined(this.options.section)) {
+				this.highlightItinerary(this.options.section);
+			}
 						
 		}
 		
+	}, {
+		CEREMONY: CEREMONY,
+		RECEPTION: RECEPTION,
+		LODGING: LODGING,
+		REGISTRY: REGISTRY,
+		RSVP: RSVP,
 	});
 	
 });

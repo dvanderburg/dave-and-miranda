@@ -13,7 +13,12 @@ define([
 		controller: new ItineraryController(),
 		
 		appRoutes: {
+			"ceremony": "showCeremony",
 			"itinerary": "showItinerary",
+			"lodging": "showLodging",
+			"reception": "showReception",
+			"registry": "showRegistry",
+			"rsvp": "showRsvp",
 			"": "showItinerary"
 		}		
 

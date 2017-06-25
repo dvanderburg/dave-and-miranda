@@ -27,3 +27,8 @@
 	font-size: 1.25em;
 	padding: 4px 0px;
 }
+
+.lodging-view .lodging-expiry {
+	text-align: center;
+	line-height: 1.33em;
+}

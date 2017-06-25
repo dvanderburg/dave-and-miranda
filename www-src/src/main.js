@@ -40,21 +40,11 @@ requirejs.config({
 requirejs([
 	'backbone',
 	'apps/Application/Application',
-	'apps/Ceremony/CeremonyRouter',
-	'apps/Itinerary/ItineraryRouter',
-	'apps/Lodging/LodgingRouter',
-	'apps/Reception/ReceptionRouter',
-	'apps/Registry/RegistryRouter',
-	'apps/Rsvp/RsvpRouter'
+	'apps/Itinerary/ItineraryRouter'
 ], function(
 	Backbone,
 	Application,
-	CeremonyRouter,
-	ItineraryRouter,
-	LodgingRouter,
-	ReceptionRouter,
-	RegistryRouter,
-	RsvpRouter
+	ItineraryRouter
 ) {
 	
 	// create instance of the application object
@@ -62,12 +52,7 @@ requirejs([
 		
 	// boostrap subapplication routers
 	//	this registers all subapps that use routing
-	application.addRouter(new CeremonyRouter());
 	application.addRouter(new ItineraryRouter());
-	application.addRouter(new LodgingRouter());
-	application.addRouter(new ReceptionRouter());
-	application.addRouter(new RegistryRouter());
-	application.addRouter(new RsvpRouter());
 
 	// start the application
 	application.start();

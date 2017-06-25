@@ -15,7 +15,7 @@
 }
 
 /* desktop break */
-@media screen and (min-width: 900px) { 
+@media screen and (min-width: 1000px) { 
 	
 	.navigation-header-layout .navigation-heading-region {
 		left: 10%;
@@ -25,17 +25,4 @@
 		width: 80%;
 	}
 
-}
-
-/* wide display break */
-@media screen and (min-width: 1200px) { 
-
-	.navigation-header-layout .navigation-heading-region {
-		left: 20%;
-		right: 20%;
-	}
-	.navigation-header-layout .navigation-header-content-region {
-		width: 60%;		
-	}
-	
 }

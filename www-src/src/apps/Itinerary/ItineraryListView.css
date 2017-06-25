@@ -6,10 +6,16 @@
 	clear: both;
 }
 
+.itinerary-list-view .itinerary-item-details {
+	float: right;
+	width: 200px;
+}
+
 .itinerary-list-view .itinerary-list-item {
-	margin: 6px auto;
+	margin: 4px auto;
 	position: relative;
-	min-height: 85px;	
+	min-height: 85px;
+	border-radius: 6px;
 }
 .itinerary-list-view .itinerary-list-item .itinerary-list-icon {
 	width: 80px;
@@ -38,6 +44,7 @@
 }
 .itinerary-list-view .itinerary-list-item .itinerary-list-body {
 	margin-left: 90px;
+	padding: 4px;
 	position: absolute;
 	top: 40%;
 	transform: translateY(-40%);
@@ -59,12 +66,8 @@
 }
 
 /* desktop break */
-@media screen and (min-width: 750px) { 
-	
-	.itinerary-list-view .itinerary-list-item {
-		float: left;
-		width: 40%;
-		margin: 6px 5%;
+@media screen and (min-width: 1000px) {
+	.itinerary-list-view .itinerary-list-item.active {
+		background: #807673;
 	}
-
 }
