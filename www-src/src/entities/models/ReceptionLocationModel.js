@@ -29,7 +29,7 @@ define([
 			description: [
 				"Reception to be held at the Inn on the Twenty Resturant in the Village of Jordan.",
 				"Cocktail and hors d'oeuvre reception at 5:00 pm. Enjoy dinner at 6:00 pm with Cave Spring wine followed by open bar and dancing.",
-				"For dinner enjoy Stuffed Chicken, New Your Strip Streak, or as a vegetarian option, Butternut Squash Risotto. Please indicate your dinner preference with the RSVP reply card included with your invitation."
+				"For dinner enjoy Stuffed Chicken, New York Strip Streak, or as a vegetarian option, Butternut Squash Risotto. Please indicate your dinner preference with the RSVP reply card included with your invitation."
 			]
 		}
 		
